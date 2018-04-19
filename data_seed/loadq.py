@@ -8,57 +8,6 @@ graph = Graph(password="root")
 int_attr = ['quote_count', 'like_count', 'reply_count', 'sentiment', 'retweet_count']
 list_attr = ['hashtags', 'mentions', 'keywords_processed_list', 'url_list']
 
-def queries():
-	q1 = """
-			MATCH(x:Author {author:'shruthi'})-[:AUTHOR_IN]-(y) 
-			Return y.tweet_text
-		"""
-	q2 = """
-			MATCH(x: Author {author:'shruthi'})-[:AUTHOR_IN]-(y) 
-			MATCH(y)-[:MENTION_IN]-(z) 
-			RETURN z.mention
-		"""
-	q3 = """
-			MATCH  (x)-[:HASHTAG_IN]-()-[:HASHTAG_IN]-(y) 
-			WHERE x.hashtag>y.hashtag
-			return count(x.hashtag+y.hashtag) AS `w`,x.hashtag,y.hashtag
-			order by w desc
-			LIMIT 20
-		"""
-	q4 = """ 
-			MATCH(y:Hashtag) WHERE y.hashtag = 'lol'
-			MATCH  (x)-[:MENTION_IN]-()-[:HASHTAG_IN]-(y) 
-			return count(x.mention+y.hashtag) AS `w`,x.mention,y.hashtag
-			order by w desc
-			LIMIT 20
-		"""
-	q5 = """
-			MATCH(x:Location) WHERE x.location='New Delhi'
-			MATCH(x)-[:LOCATION_IN]-()-[:HASHTAG_IN]-(y)
-			Return y.hashtag AS `Hashtag`, x.location AS `Location`
-		"""
-	q6 = """
-			MATCH(s:Retweet)-[:RETWEET_IN]-(x)-[:AUTHOR_IN]-(z)
-			WHERE s.author_id<>z.author_id
-			return COUNT(s.author+z.author) AS `w`, s.author AS `Author1`, z.author AS `Author2`
-            ORDER BY w DESC
-			LIMIT 5
-		"""
-
-	q7 = """
-			MATCH(x:ReplyTweet)-[:REPLY_IN]-()-[:AUTHOR_IN]-(z)
-			WHERE x.author_id<>z.author_id
-			Return COUNT(x.author+z.author) AS `w`, x.author AS `Author1`, z.author AS `Author2`
-			ORDER BY w DESC
-			LIMIT 5
-		"""
-
-	q8 = """
-			MATCH(x:Author)-[:AUTHOR_IN]-(z) 
-			WHERE x.author="Wilcantor"
-			DELETE DETACH z
-		"""
-
 def add_data(data_list):
 
 	query_u="""
@@ -244,5 +193,5 @@ def read_q_data():
 	    print('dataset.json')
 
 if __name__ == '__main__':
-	# read_data()
+	read_data()
 	read_q_data()
