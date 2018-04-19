@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result Set</title>
+	<style>
+		table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+		th, td {
+		    padding: 15px;
+		}
+	</style>
+</head>
+<body>
+	{% if question_number=='q1' %}
+	<table>
+	<tr>
+		<th>Author</th>
+		<th>TweetText</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.author}}</td>
+		<td>{{element.tweet_text}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q2' %}
+	<table>
+	<tr>
+		<th>Author</th>
+		<th>Mention</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.author}}</td>
+		<td>{{element.mention}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q3' %}
+	<table>
+	<tr>
+		<th>Count</th>
+		<th>Hashtag1</th>
+		<th>Hashtag2</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.counter}}</td>
+		<td>{{element.hashtag1}}</td>
+		<td>{{element.hashtag2}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q4' %}
+	<table>
+	<tr>
+		<th>Count</th>
+		<th>Hashtag</th>
+		<th>Mention</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.counter}}</td>
+		<td>{{element.hashtag}}</td>
+		<td>{{element.mention}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q5' %}
+	<table>
+	<tr>
+		<th>Hashtag</th>
+		<th>Location</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.hashtag}}</td>
+		<td>{{element.location}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q6' %}
+	<table>
+	<tr>
+		<th>Author1</th>
+		<th>Author2</th>
+		<th>Count</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.author1}}</td>
+		<td>{{element.author2}}</td>
+		<td>{{element.counter}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q7' %}
+	<table>
+	<tr>
+		<th>Author1</th>
+		<th>Author2</th>
+		<th>Count</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.author1}}</td>
+		<td>{{element.author2}}</td>
+		<td>{{element.counter}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q1midsem' %}
+	<table>
+	<tr>
+		<th>User Mention</th>
+		<th>User Mentioning User Mention</th>
+		<th>TweetId</th>
+		<th>Mention Count</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.user_mention}}</td>
+		<td>{{element.mentioning_user}}</td>
+		<td>{{element.tweet_id}}</td>
+		<td>{{element.counter}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+	{% if question_number=='q2midsem' %}
+	<table>
+	<tr>
+		<th>User Mention</th>
+		<th>Hashtag</th>
+		<th>TweetID</th>
+	</tr>
+	{% for element in resultset %}
+	<tr>
+		<td>{{element.user_mention}}</td>
+		<td>{{element.hashtag}}</td>
+		<td>{{element.tweet_id}}</td>
+	</tr>
+	{% if loop.last %}
+	<h4>Fetched {{loop.length-1}} Rows!!</h4>
+	{% endif %}
+	{% endfor %}
+	</table>
+	{% endif %}
+</body>
+</html>

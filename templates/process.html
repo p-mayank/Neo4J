@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Process</title>
+</head>
+<body>
+	{{display_text}}
+	<form method="post" action="/result">
+		{% if q_number!='q3' %}
+		{% if q_number!='q6' %}
+		{% if q_number!='q7' %}
+		<input type="text" name="keyword">
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		<input type="hidden" name="question_number" value="{{ q_number }}">
+		<button type="submit">Execute</button>
+	</form>
+</body>
+</html>
